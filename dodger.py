@@ -32,13 +32,16 @@ def main_menu():
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                exit()
+                end_game()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     return
                 if event.key == pygame.K_ESCAPE:
-                    pygame.quit()
-                    exit()
+                    end_game()
 
 main_menu()
+
+#Ends the game
+def end_game():
+    pygame.quit()
+    exit()
