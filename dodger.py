@@ -12,7 +12,7 @@ pygame.init()
 # Color
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-NAVYBLUE = (60, 60, 100)
+DARKBLUE = (0, 4, 53)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
@@ -20,6 +20,8 @@ YELLOW = (255, 255, 0)
 ORANGE = (255, 128, 0)
 PURPLE = (255, 0, 255)
 CYAN = (0, 255, 255)
+GRAY_1 = (72,72,72)
+GRAY_2 = (114,114,114)
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -43,6 +45,14 @@ def draw_text(text, surface, pos, size, color):
 def draw_player():
     pygame.draw.rect(surface, Player.color, pygame.Rect(30, 30, 60, 60))
 
+
+def enemies():
+    object_size = random.randint(20, 50)
+    object_pos = [random.randint(0, WIDTH - object_size), 0]
+    object_speed = random.randint(3, 8)
+    object_color = random.choice([WHITE, YELLOW, GRAY_1, GRAY_2,GREEN,CYAN])
+    return object_pos, object_size, object_speed, object_color
+    
 # Main
 def main_menu():
     while True:
