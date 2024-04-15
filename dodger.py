@@ -1,8 +1,3 @@
-import sys,  pygame
-from pygame.locals import *
-from random import *
-
-
 import pygame
 from pygame.locals import *
 import sys
