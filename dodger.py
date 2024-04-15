@@ -57,9 +57,9 @@ def enemies():
 def main_menu():
     while True:
         screen.fill(BLACK)
-        draw_text("Dodger", screen, [WIDTH // 2, HEIGHT // 4], 60, WHITE)
-        draw_text("Press SPACE to play", screen, [WIDTH // 2, HEIGHT // 2], 30, WHITE)
-        draw_text("Press ESC to quit", screen, [WIDTH // 2, HEIGHT * 3 // 4], 30, WHITE)
+        draw_text("Dodger", screen, [WIDTH // 2, HEIGHT // 4], 300, RED)
+        draw_text("Press SPACE to play", screen, [WIDTH // 2, HEIGHT // 2], 80, YELLOW)
+        draw_text("Press ESC to quit", screen, [WIDTH // 2, HEIGHT * 3 // 4], 80, YELLOW)
         pygame.display.update()
 
         for event in pygame.event.get():
