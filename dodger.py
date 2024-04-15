@@ -1,3 +1,4 @@
+from turtle import color
 import pygame
 from pygame.locals import *
 import sys
@@ -12,6 +13,14 @@ pygame.init()
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
+#Classes
+class Player:
+    __init__(self, color, size):
+        self.color = color
+        self.size = size #size je cislo popisujici delku strany ctverce, kterym je hrac
+        self.alive = true 
+
 
 #Text
 def draw_text(text, surface, pos, size, color):
@@ -45,3 +54,4 @@ main_menu()
 def end_game():
     pygame.quit()
     exit()
+
