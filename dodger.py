@@ -39,6 +39,7 @@ def draw_text(text, surface, pos, size, color):
     text_rect.center = pos
     surface.blit(text_surface, text_rect)
 
+    #namaluje ctverec(hrac) do prostred pole
 def draw_player():
     pygame.draw.rect(surface, Player.color, pygame.Rect(30, 30, 60, 60))
 
