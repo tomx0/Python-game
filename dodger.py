@@ -28,7 +28,7 @@ class Player:
     def __init__(self, color, size):
         self.color = GREEN
         self.size = size #size je cislo popisujici delku strany ctverce, kterym je hrac
-        self.alive = true 
+        self.alive = True 
 
 
 #Text
