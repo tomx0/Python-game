@@ -67,11 +67,14 @@ def main_menu():
                 end_game()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
+                    start_game()
                     return
                 if event.key == pygame.K_ESCAPE:
                     end_game()
 
 main_menu()
+
+def start_game(): #ted me jeste nenapadlo,co sem napsat 
 
 #Ends the game
 def end_game():
