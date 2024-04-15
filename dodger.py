@@ -71,7 +71,8 @@ def main_menu():
                 if event.key == pygame.K_ESCAPE:
                     end_game()
 
-main_menu()
+if __name__ == '__main__':
+    main_menu()
 
 def start_game(): #ted me jeste nenapadlo,co sem napsat 
         screen.fill(BLACK)
