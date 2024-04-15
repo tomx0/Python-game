@@ -26,7 +26,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 #Classes
 class Player:
     def __init__(self, color, size):
-        self.color = color
+        self.color = GREEN
         self.size = size #size je cislo popisujici delku strany ctverce, kterym je hrac
         self.alive = true 
 
@@ -38,6 +38,9 @@ def draw_text(text, surface, pos, size, color):
     text_rect = text_surface.get_rect()
     text_rect.center = pos
     surface.blit(text_surface, text_rect)
+
+def draw_player():
+    pygame.draw.rect(surface, Player.color, pygame.Rect(30, 30, 60, 60))
 
 # Main
 def main_menu():
