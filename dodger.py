@@ -58,14 +58,14 @@ def enemies():
     
 # Main
 def main_menu():
-    global player, screen
+    global player, screen, has_started
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     screen.fill(BLACK)
     draw_text("Dodger", screen, [WIDTH // 2, HEIGHT // 4], 300, RED)
     draw_text("Press SPACE to play", screen, [WIDTH // 2, HEIGHT // 2], 80, YELLOW)
     draw_text("Press ESC to quit", screen, [WIDTH // 2, HEIGHT * 3 // 4], 80, YELLOW)
-
+    has_started = False
     player = Player(GREEN, 60, 930, 510)
     while True:
         for event in pygame.event.get():
@@ -73,15 +73,17 @@ def main_menu():
                 end_game()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    start_game()
+                    if has_started == False:
+                        start_game()
                 if event.key == pygame.K_ESCAPE:
                     end_game()
             pygame.display.update()
 
 
 def start_game(): #work in progress
-        screen.fill(BLACK)
-        draw_player()
+    has_started = True
+    screen.fill(BLACK)
+    draw_player()
 
 #Ends the game
 def end_game():
