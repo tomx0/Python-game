@@ -48,6 +48,7 @@ def draw_player():
     pygame.draw.rect(screen, player.color, (player.x, player.y, player.size, player.size))
 
 
+
 def enemies():
     object_size = random.randint(20, 50)
     object_pos = [random.randint(0, WIDTH - object_size), 0]
@@ -64,8 +65,8 @@ def main_menu():
     draw_text("Dodger", screen, [WIDTH // 2, HEIGHT // 4], 300, RED)
     draw_text("Press SPACE to play", screen, [WIDTH // 2, HEIGHT // 2], 80, YELLOW)
     draw_text("Press ESC to quit", screen, [WIDTH // 2, HEIGHT * 3 // 4], 80, YELLOW)
-    
-    player = Player(GREEN, 60, 100, 100)
+
+    player = Player(GREEN, 60, 930, 510)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
