@@ -55,6 +55,26 @@ def enemies():
     object_speed = random.randint(3, 8)
     object_color = random.choice([WHITE, YELLOW, GRAY_1, GRAY_2,GREEN,CYAN])
     return object_pos, object_size, object_speed, object_color
+def game():
+    clock = pygame.time.Clock()
+    objects = []
+
+    while True:
+        screen.fill(BLACK)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT or pygame.key.get_pressed()[pygame.K_ESCAPE]:
+                end_game()
+
+        if random.randint(0, 100) < 5:
+            objects.append(create_object())
+
+        for obj in objects:
+            pygame.draw.rect(screen, obj[3], (obj[0][0], obj[0][1], obj[1], obj[1]))
+            obj[0][1] += obj[2]
+
+        pygame.display.flip()
+        clock.tick(FPS)
     
 # Main
 def main_menu():
