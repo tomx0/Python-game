@@ -55,6 +55,8 @@ def enemies():
     object_speed = random.randint(3, 8)
     object_color = random.choice([WHITE, YELLOW, GRAY_1, GRAY_2,GREEN,CYAN])
     return object_pos, object_size, object_speed, object_color
+
+
 def game():
     clock = pygame.time.Clock()
     objects = []
