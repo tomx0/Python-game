@@ -44,8 +44,8 @@ def draw_text(text, surface, pos, size, color):
     surface.blit(text_surface, text_rect)
 
     #namaluje ctverec hrace ve tvaru ctverce
-def draw_player():
-    pygame.draw.rect(screen, player.color, (player.x, player.y, player.size, player.size))
+def draw_player(x, y):
+    pygame.draw.rect(screen, player.color, (x, y, player.size, player.size))
 
 
 
@@ -80,7 +80,7 @@ def game():
     
 # Main
 def main_menu():
-    global player, screen, has_started
+    global player, screen, has_started, player_x, player_y
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     screen.fill(BLACK)
@@ -88,6 +88,8 @@ def main_menu():
     draw_text("Press SPACE to play", screen, [WIDTH // 2, HEIGHT // 2], 80, YELLOW)
     draw_text("Press ESC to quit", screen, [WIDTH // 2, HEIGHT * 3 // 4], 80, YELLOW)
     has_started = False
+    player_x = 930
+    player_y = 510
     player = Player(GREEN, 60, 930, 510)
     while True:
         for event in pygame.event.get():
@@ -97,6 +99,14 @@ def main_menu():
                 if event.key == pygame.K_SPACE:
                     if has_started == False:
                         start_game()
+                if event.key == pygame.K_LEFT:
+                    player_x = player_x - 5
+                    screen.fill(BLACK)
+                    draw_player(player_x, player_y)
+                if event.key == pygame.K_RIGHT:
+                    player_x = player_x + 5
+                    screen.fill(BLACK)
+                    draw_player(player_x, player_y)
                 if event.key == pygame.K_ESCAPE:
                     end_game()
             pygame.display.update()
@@ -105,7 +115,7 @@ def main_menu():
 def start_game(): #work in progress
     has_started = True
     screen.fill(BLACK)
-    draw_player()
+    draw_player(930, 510)
 
 #Ends the game
 def end_game():
