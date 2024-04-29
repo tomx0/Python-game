@@ -28,6 +28,7 @@ class Player:
         self.alive = True
         self.x = posx
         self.y = posy
+        self.score = 0
 
 # Text
 def draw_text(text, surface, pos, size, color):
@@ -53,6 +54,7 @@ def create_object():
 def game(screen):
     clock = pygame.time.Clock()
     objects = []
+    player.score = 0
 
     while True:
         screen.fill(BLACK)
@@ -68,8 +70,12 @@ def game(screen):
         for obj in objects:
             pygame.draw.rect(screen, obj[3], (obj[0][0], obj[0][1], obj[1], obj[1]))
             obj[0][1] += obj[2]
+            if obj[0][1] > HEIGHT: # Check if object has reached bottom of screen
+                player.score += 1
+                objects.remove(obj)
 
         draw_player(screen, player.x, player.y, player.color, player.size)
+        draw_text(f"Score: {player.score}", screen, (WIDTH // 2, 50), 50, WHITE)
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a] and player.x > 0:
@@ -109,3 +115,4 @@ def main_menu():
 
 if __name__ == '__main__':
     main_menu()
+
